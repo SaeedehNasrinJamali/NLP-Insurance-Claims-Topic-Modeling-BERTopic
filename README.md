@@ -31,3 +31,14 @@ HDBSCAN groups similar claims and flags outliers as noise (Topic -1) without req
 c. Topic Representation (c-TF-IDF – internal)
 BERTopic uses c-TF-IDF to extract the most informative words for each topic, which were then used to assign human-readable topic labels.
 # Results and Visualizations
+- Topic Frequency Bar Chart
+  Shows which claim types occur most often.
+
+- Average Topic Probability Chart
+
+  Shows the model’s confidence in each discovered topic.
+
+-  CSV Outputs
+-  claims_with_topics.csv — each claim with assigned topic
+-  topic_summary.csv — aggregated topic stats
+
