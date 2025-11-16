@@ -4,11 +4,12 @@ import pandas as pd
 from sentence_transformers import SentenceTransformer
 from bertopic import BERTopic
 import matplotlib.pyplot as plt
+import os
 
 print("torch:", torch.__version__)
 print("numpy:", np.__version__)
 print("transformers:", transformers.__version__)
-
+os.makedirs("outputs/figures", exist_ok=True)
 # Load and Prepare Data
 file_path = r"path"
 
