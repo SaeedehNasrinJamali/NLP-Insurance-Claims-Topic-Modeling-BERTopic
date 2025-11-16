@@ -19,8 +19,8 @@ All text was converted to string format for consistency.
 
 2. Embedding Generation
 Each claim description was transformed into a numerical vector (embedding) using the SentenceTransformer model all-MiniLM-L6-v2.
-
 This model was chosen for its strong semantic performance and lightweight architecture.
+
 3. Topic Modeling with BERTopic
 BERTopic automatically applies several steps internally to generate coherent topics:
 a. Dimensionality Reduction (UMAP – internal)
