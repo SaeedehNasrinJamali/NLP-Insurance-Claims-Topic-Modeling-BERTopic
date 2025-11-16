@@ -1,0 +1,97 @@
+
+# import torch, numpy as np, transformers
+import pandas as pd
+from sentence_transformers import SentenceTransformer
+from bertopic import BERTopic
+import matplotlib.pyplot as plt
+
+print("torch:", torch.__version__)
+print("numpy:", np.__version__)
+print("transformers:", transformers.__version__)
+
+# Load and Prepare Data
+file_path = r"path"
+
+df = pd.read_excel(file_path)
+
+text_col = "Claim Description"
+df = df.dropna(subset=[text_col])
+df[text_col] = df[text_col].astype(str)
+
+print("Number of claims:", len(df))
+texts = df[text_col].tolist()
+df.head()
+# BERTopic Modeling
+# Load the pretrained sentence transformer
+transformer_model = SentenceTransformer("all-MiniLM-L6-v2")
+
+# Fit the BERTopic model
+topic_model = BERTopic(embedding_model=transformer_model, verbose=True)
+topics, probs = topic_model.fit_transform(texts)
+
+# Attach topics to the dataframe
+df["topic"] = topics
+df["probability"] = probs
+
+# Topics
+topic_model.get_topic_info().head()
+# Map Topics to Human-Readable Names
+topic_names = {
+    -1: "Miscellaneous / Noise",
+     0: "Rear-End Collision (IV hits OV)",
+     1: "Slip / Trip / Fall",
+     2: "Water Damage / Frozen Pipes",
+     3: "Small Property Damage",
+     4: "Vehicle Damage While Driving",
+     5: "Third Party Reversing",
+     6: "School Bus / Student Accident",
+     7: "Food Poisoning / Restaurant Injury",
+     8: "Police / Driveway Incidents",
+     9: "Pothole / Road Hazard",
+    10: "Delivery / Door/Window Damage",
+    11: "Rock / Windshield Crack",
+    12: "Foreign Object in Food",
+    13: "Two-Vehicle Parked Collision",
+    14: "Hot Coffee / Beverage Burn",
+    15: "Rear-End Collision (Client hits others)",
+    16: "UPS / Gate Mechanical Issue",
+}
+
+df["topic_name"] = df["topic"].map(topic_names)
+df[["Claim Description", "topic", "topic_name", "probability"]].head()
+# Summary Table
+topic_summary = (
+    df.groupby("topic_name")
+      .agg(
+          n_claims=("Claim Description", "size"),
+          avg_probs=("probability", "mean")
+      )
+      .sort_values("n_claims", ascending=False)
+)
+
+topic_summary
+# Bar Chart – Number of Claims per Topic
+ax = topic_summary["n_claims"].plot(kind="barh", figsize=(10, 8))
+plt.title("Number of Claims per Topic")
+plt.xlabel("Number of Claims")
+plt.ylabel("Topic")
+plt.gca().invert_yaxis()
+plt.tight_layout()
+plt.show()
+# Bar Chart – Average Probability per Topic (with labels)
+ax = topic_summary["avg_probs"].plot(kind="barh", figsize=(10, 8), color="orange")
+plt.title("Average Topic Probability")
+plt.xlabel("Average Probability")
+plt.ylabel("Topic")
+plt.gca().invert_yaxis()
+plt.xlim(0, 1.05)
+
+# Add probability labels at the end of each bar
+for i, v in enumerate(topic_summary["avg_probs"]):
+    ax.text(v + 0.01, i, f"{v:.2f}", va="center")
+
+plt.tight_layout()
+plt.show()
+# Save Outputs
+df.to_csv("claims_with_topics.csv", index=False)
+topic_summary.to_csv("topic_summary.csv")
