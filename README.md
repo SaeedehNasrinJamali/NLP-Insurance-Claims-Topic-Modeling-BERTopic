@@ -33,11 +33,8 @@ BERTopic uses c-TF-IDF to extract the most informative words for each topic, whi
 # Results and Visualizations
 - Topic Frequency Bar Chart
   Shows which claim types occur most often.
-
 - Average Topic Probability Chart
-
   Shows the model’s confidence in each discovered topic.
-
 -  CSV Outputs
 -  claims_with_topics.csv — each claim with assigned topic
 -  topic_summary.csv — aggregated topic stats
