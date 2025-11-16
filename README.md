@@ -6,8 +6,9 @@ By applying the state-of-the-art BERTopic framework, this project demonstrates a
 The core objective is to move beyond manual, time-consuming methods of sorting claims, enabling faster processing, improved efficiency, and deeper insights into recurring claim types and trends.
 
 # Key Insights
-- Successfully identified 16 meaningful topics, providing a clear overview of the most common types of insurance claims without any pre-labeled data.
-- Topic prevalence analysis revealed the most dominant claim types, such as "Rear-End Collisions" and "Water Damage," allowing a business to prioritize or investigate these areas further.
+- Successfully identified 16 meaningful topics, providing a clear overview of the most common types of insurance claims without any pre-labeled data. 
+  Clear claim themes emerged such as:"Rear-End Collisions","Slip & Fall","Water Damage","Windshield Damage","Food Poisoning", The noise cluster (Topic -1) captured ambiguous or mixed claims.
+- Using transformer-based embeddings significantly improved the semantic coherence of topics.
 - The use of BERTopic, powered by transformer-based embeddings, produced highly coherent and semantically relevant topics, ensuring that the generated categories are both accurate and easy to interpret.
 - The project provides a foundation for more advanced analytics, such as tracking topic trends over time or combining topic data with other claim metadata for deeper insights.
 # Methodology 
