@@ -36,6 +36,6 @@ BERTopic uses c-TF-IDF to extract the most informative words for each topic, whi
 - Average Topic Probability Chart
    shows the model’s confidence in each discovered topic.
 -  CSV Outputs
-  claims_with_topics.csv — each claim with assigned topic
+  claims_with_topics.csv — each claim with assigned topic,
   topic_summary.csv — aggregated topic stats
 
