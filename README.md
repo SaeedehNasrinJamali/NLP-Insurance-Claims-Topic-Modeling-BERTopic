@@ -10,9 +10,8 @@ The core objective is to move beyond manual, time-consuming methods of sorting c
 - Topic prevalence analysis revealed the most dominant claim types, such as "Rear-End Collisions" and "Water Damage," allowing a business to prioritize or investigate these areas further.
 - The use of BERTopic, powered by transformer-based embeddings, produced highly coherent and semantically relevant topics, ensuring that the generated categories are both accurate and easy to interpret.
 - The project provides a foundation for more advanced analytics, such as tracking topic trends over time or combining topic data with other claim metadata for deeper insights.
-  
-# The project follows a standard unsupervised NLP workflow and leverages the advanced clustering capabilities of BERTopic to automatically discover themes in insurance claim descriptions.
-
+# Methodology 
+The project follows a standard unsupervised NLP workflow and leverages the advanced clustering capabilities of BERTopic to automatically discover themes in insurance claim descriptions.
 1. Data Loading & Preprocessing
 Raw claim descriptions were imported from an Excel file.
 Records with missing descriptions were removed to maintain data integrity.
