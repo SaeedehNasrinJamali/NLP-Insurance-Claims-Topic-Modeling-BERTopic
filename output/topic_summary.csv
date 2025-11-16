@@ -1,0 +1,18 @@
+topic_name,n_claims,avg_probs
+Miscellaneous / Noise,220,0.0
+Rear-End Collision (IV hits OV),219,0.9770054199261532
+Slip / Trip / Fall,118,0.9600029382460368
+Water Damage / Frozen Pipes,74,0.8264728914891432
+Small Property Damage,67,0.5740439159124128
+Vehicle Damage While Driving,56,0.9053801994088706
+School Bus / Student Accident,49,0.7293060087886786
+Third Party Reversing,49,0.5497402445623245
+Food Poisoning / Restaurant Injury,33,0.891436294004926
+Police / Driveway Incidents,29,0.8501531752595921
+Pothole / Road Hazard,22,0.7610413531029837
+Delivery / Door/Window Damage,19,0.8991368279350889
+Rock / Windshield Crack,17,0.9612321814739518
+Foreign Object in Food,16,0.978424746559679
+Two-Vehicle Parked Collision,14,0.9873939326493119
+Hot Coffee / Beverage Burn,13,0.9845682369717671
+Rear-End Collision (Client hits others),12,0.973021886597072
